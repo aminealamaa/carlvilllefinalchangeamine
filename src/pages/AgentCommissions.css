@@ -1,0 +1,241 @@
+.agent-commissions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.commissions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-4);
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.header-title h1 {
+  margin: 0;
+}
+
+.last-updated {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+}
+
+.date-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+}
+
+.date-filter input {
+  border: none;
+  outline: none;
+  font-size: 0.875rem;
+  color: var(--gray-800);
+}
+
+.commissions-table-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow-x: auto;
+}
+
+.commissions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.commissions-table th {
+  background: #f5f5f5;
+  padding: 12px 16px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  white-space: nowrap;
+}
+
+.sortable-header {
+  cursor: pointer;
+  user-select: none;
+}
+
+.sortable-header:hover {
+  background-color: #eaeaea;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.commissions-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 14px;
+}
+
+.commissions-table tr:hover {
+  background-color: #f8fbff;
+}
+
+.commissions-table td:first-child {
+  min-width: 80px;
+  text-align: center;
+}
+
+.commissions-table td:nth-child(2) {
+  min-width: 180px;
+  text-align: left;
+}
+
+.commissions-table td:not(:first-child):not(:nth-child(2)) {
+  text-align: right;
+}
+
+/* Styling for the rank rows */
+.commissions-table tr.rank-1 {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.commissions-table tr.rank-2 {
+  background-color: rgba(192, 192, 192, 0.1);
+}
+
+.commissions-table tr.rank-3 {
+  background-color: rgba(205, 127, 50, 0.1);
+}
+
+.commissions-table tr.rank-1:hover {
+  background-color: rgba(255, 215, 0, 0.15);
+}
+
+.commissions-table tr.rank-2:hover {
+  background-color: rgba(192, 192, 192, 0.15);
+}
+
+.commissions-table tr.rank-3:hover {
+  background-color: rgba(205, 127, 50, 0.15);
+}
+
+.rank-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.medal {
+  margin-right: 4px;
+}
+
+.medal.gold {
+  color: #ffd700;
+}
+
+.medal.silver {
+  color: #c0c0c0;
+}
+
+.medal.bronze {
+  color: #cd7f32;
+}
+
+.performance-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: #0077ff;
+  background-color: rgba(0, 119, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.change-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.change-indicator.positive {
+  color: #44bb44;
+}
+
+.change-indicator.negative {
+  color: #ff4444;
+}
+
+.editable-cell {
+  position: relative;
+  cursor: pointer;
+}
+
+.editable-cell:hover::after {
+  content: "✎";
+  position: absolute;
+  right: 4px;
+  color: var(--gray-400);
+  font-size: 12px;
+}
+
+.error-message {
+  background-color: rgba(229, 62, 62, 0.1);
+  color: var(--error);
+  padding: var(--spacing-3);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-4);
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .commissions-header {
+    flex-direction: column;
+    gap: var(--spacing-4);
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .commissions-table-container {
+    margin: 0 -16px;
+    width: calc(100% + 32px);
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,59 @@
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+
+.language-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.language-buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.language-button {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.language-button:hover {
+  background: var(--bg-hover);
+}
+
+.language-button.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .language-label {
+    display: none;
+  }
+
+  .language-switcher {
+    margin-right: 0.5rem;
+  }
+}
+
+/* Sidebar specific styling */
+.sidebar .language-switcher {
+  margin: 1rem 0;
+  justify-content: center;
+}
+
+/* Login page specific styling */
+.login-page .language-switcher {
+  margin: 0;
+}

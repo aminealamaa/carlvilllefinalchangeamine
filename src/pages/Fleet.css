@@ -1,0 +1,452 @@
+.fleet-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.fleet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2);
+}
+
+.fleet-header h1 {
+  margin-bottom: 0;
+}
+
+.fleet-actions {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.fleet-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-4);
+}
+
+.view-toggle {
+  display: flex;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.view-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--white);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.view-toggle-btn:hover:not(.active) {
+  background-color: var(--gray-100);
+}
+
+.view-toggle-btn.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-4);
+}
+
+@media (min-width: 640px) {
+  .vehicle-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .vehicle-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.vehicle-card {
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.vehicle-image {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.vehicle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.vehicle-card:hover .vehicle-image img {
+  transform: scale(1.05);
+}
+
+.vehicle-status {
+  position: absolute;
+  top: var(--spacing-3);
+  right: var(--spacing-3);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.vehicle-status.available {
+  background-color: rgba(72, 187, 120, 0.9);
+  color: white;
+}
+
+.vehicle-status.booked {
+  background-color: rgba(66, 153, 225, 0.9);
+  color: white;
+}
+
+.vehicle-status.maintenance {
+  background-color: rgba(237, 137, 54, 0.9);
+  color: white;
+}
+
+.vehicle-status.unavailable {
+  background-color: rgba(229, 62, 62, 0.9);
+  color: white;
+}
+
+.vehicle-info {
+  padding: var(--spacing-4);
+}
+
+.vehicle-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-2);
+}
+
+.vehicle-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-bottom: var(--spacing-3);
+}
+
+.separator {
+  color: var(--gray-400);
+}
+
+.vehicle-specs {
+  display: flex;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.vehicle-spec {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.vehicle-spec svg {
+  color: var(--primary);
+}
+
+.vehicle-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vehicle-rate {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-1);
+}
+
+.rate-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.rate-period {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.vehicle-actions {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.vehicle-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--gray-100);
+  border: none;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.vehicle-action-btn:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.vehicle-list-container {
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: auto;
+}
+
+.vehicle-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vehicle-list-table th {
+  background-color: var(--gray-50);
+  padding: var(--spacing-3) var(--spacing-4);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.vehicle-list-table td {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--gray-200);
+  color: var(--gray-800);
+}
+
+.vehicle-list-image {
+  width: 64px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.vehicle-list-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vehicle-list-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicle-list-name .brand {
+  font-weight: 500;
+}
+
+.vehicle-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.vehicle-status-badge.available {
+  background-color: rgba(72, 187, 120, 0.2);
+  color: var(--success);
+}
+
+.vehicle-status-badge.booked {
+  background-color: rgba(66, 153, 225, 0.2);
+  color: #4299e1;
+}
+
+.vehicle-status-badge.maintenance {
+  background-color: rgba(237, 137, 54, 0.2);
+  color: #ed8936;
+}
+
+.vehicle-status-badge.unavailable {
+  background-color: rgba(229, 62, 62, 0.2);
+  color: var(--error);
+}
+
+.vehicle-list-actions {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.filter-panel {
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4) var(--spacing-6);
+  margin-bottom: var(--spacing-4);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-4);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+  .filter-panel {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.price-range {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.range-slider {
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--gray-300);
+  outline: none;
+  border-radius: 2px;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+}
+
+.range-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--gray-600);
+}
+
+@media (max-width: 768px) {
+  .fleet-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+  }
+
+  .fleet-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+
+  .toolbar-actions {
+    justify-content: space-between;
+  }
+}
+
+/* Add or update the loading indicator styles */
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+  color: #667085;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3f8cff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error container styles */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+  background: #fff1f0;
+  border: 1px solid #ffa39e;
+  border-radius: 8px;
+  margin: 2rem;
+}
+
+.error-container h2 {
+  color: #cf1322;
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  color: #5c5c5c;
+  margin-bottom: 1.5rem;
+}
+
+.error-container button {
+  background-color: #1677ff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.error-container button:hover {
+  background-color: #0958d9;
+}

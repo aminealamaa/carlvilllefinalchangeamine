@@ -1,0 +1,110 @@
+.user-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 240px;
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-4);
+}
+
+.user-menu-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: var(--spacing-3);
+  object-fit: cover;
+  border: 2px solid var(--gray-200);
+}
+
+.user-menu-avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-3);
+  color: var(--gray-600);
+}
+
+.user-details {
+  overflow: hidden;
+}
+
+.user-name {
+  font-weight: 500;
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--gray-800);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.user-menu-divider {
+  height: 1px;
+  background-color: var(--gray-200);
+  margin: 0;
+}
+
+.user-menu-list {
+  list-style: none;
+  padding: var(--spacing-2) 0;
+}
+
+.user-menu-link {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  text-decoration: none;
+  color: var(--gray-700);
+  transition: background-color var(--transition-fast);
+}
+
+.user-menu-link:hover {
+  background-color: var(--gray-100);
+  color: var(--primary);
+}
+
+.user-menu-link svg {
+  margin-right: var(--spacing-3);
+}
+
+.user-menu-logout {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-4);
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--gray-700);
+  transition: background-color var(--transition-fast);
+}
+
+.user-menu-logout:hover {
+  background-color: rgba(229, 62, 62, 0.1);
+  color: var(--error);
+}
+
+.user-menu-logout svg {
+  margin-right: var(--spacing-3);
+}

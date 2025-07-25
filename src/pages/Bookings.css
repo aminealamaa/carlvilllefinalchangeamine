@@ -1,0 +1,515 @@
+.bookings-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.bookings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2);
+}
+
+.bookings-header h1 {
+  margin-bottom: 0;
+}
+
+.bookings-actions {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.bookings-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-4);
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--spacing-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-500);
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-3) var(--spacing-3)
+    calc(var(--spacing-3) * 2 + 18px);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.filter-button,
+.export-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-button:hover,
+.export-button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-button.active {
+  background-color: rgba(229, 62, 62, 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-panel {
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4) var(--spacing-6);
+  margin-bottom: var(--spacing-4);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-4);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+  .filter-panel {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.filter-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.filter-date-inputs {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.filter-date-inputs .form-input {
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+.to-separator {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: var(--spacing-3);
+  justify-content: flex-end;
+  align-items: flex-end;
+  grid-column: 1 / -1;
+}
+
+.bookings-table-container {
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  overflow: auto;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bookings-table th {
+  background-color: var(--gray-50);
+  padding: var(--spacing-3) var(--spacing-4);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.th-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.bookings-table td {
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--gray-200);
+  color: var(--gray-800);
+}
+
+.status-badge,
+.payment-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-badge.confirmed {
+  background-color: rgba(72, 187, 120, 0.2);
+  color: var(--success);
+}
+
+.status-badge.pending {
+  background-color: rgba(237, 137, 54, 0.2);
+  color: #ed8936;
+}
+
+.status-badge.completed {
+  background-color: rgba(66, 153, 225, 0.2);
+  color: #4299e1;
+}
+
+.status-badge.cancelled {
+  background-color: rgba(245, 101, 101, 0.2);
+  color: var(--error);
+}
+
+.payment-badge.paid {
+  background-color: rgba(72, 187, 120, 0.2);
+  color: var(--success);
+}
+
+.payment-badge.pending {
+  background-color: rgba(237, 137, 54, 0.2);
+  color: #ed8936;
+}
+
+.payment-badge.partial {
+  background-color: rgba(66, 153, 225, 0.2);
+  color: #4299e1;
+}
+
+.table-actions {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.action-btn {
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: 0.75rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.action-btn.view {
+  background-color: rgba(66, 153, 225, 0.2);
+  color: #4299e1;
+}
+
+.action-btn.view:hover {
+  background-color: rgba(66, 153, 225, 0.3);
+}
+
+.action-btn.edit {
+  background-color: rgba(237, 137, 54, 0.2);
+  color: #ed8936;
+}
+
+.action-btn.edit:hover {
+  background-color: rgba(237, 137, 54, 0.3);
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-3) 0;
+}
+
+.pagination-info {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.pagination-controls {
+  display: flex;
+  gap: var(--spacing-1);
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 var(--spacing-2);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  background-color: var(--white);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pagination-btn:not(.disabled):hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.pagination-btn.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+.pagination-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .bookings-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+  }
+
+  .bookings-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+
+  .toolbar-actions {
+    justify-content: space-between;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: var(--spacing-3);
+  }
+}
+
+/* Time status styles with reduced flickering */
+.time-status {
+  font-weight: 600;
+  font-family: monospace; /* For better alignment of time units */
+  position: relative;
+  min-width: 120px; /* Prevent width changes causing flicker */
+  transition: color 0.3s ease; /* Smooth color transitions */
+  height: 22px; /* Fixed height to prevent layout shifts */
+  display: flex;
+  align-items: center;
+}
+
+/* Expired status - time has passed */
+.time-status.expired {
+  color: #e53e3e;
+  font-style: italic;
+}
+
+/* Urgent status - less than an hour left */
+.time-status.urgent {
+  color: #dd6b20;
+  animation: pulse 3s infinite; /* Slower pulse to reduce visual strain */
+}
+
+/* Active status - more than an hour left */
+.time-status.active {
+  color: var(--green-600);
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+/* Add a smoother pulsing animation for urgent time status */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  } /* Less dramatic fade for reduced flicker perception */
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Extra urgent - only seconds remaining */
+.time-status.urgent[data-seconds-only="true"] {
+  color: #e53e3e;
+  animation: pulse 2s infinite;
+}
+
+/* Remove the old time-remaining styles that are no longer needed */
+.time-remaining,
+.time-remaining.expired,
+.time-remaining.urgent,
+.days-left,
+.days-left.expired {
+  /* These are being replaced by time-status styles */
+  font-weight: inherit;
+  color: inherit;
+  animation: none;
+}
+
+/* Ensure the table accommodates the new column */
+.bookings-table th,
+.bookings-table td {
+  padding: 12px 16px;
+  white-space: nowrap;
+}
+
+.bookings-table th {
+  font-weight: 600;
+  text-align: left;
+  background-color: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Small spinner for buttons */
+.spinner-sm {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disabled button styles */
+.export-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: var(--gray-200);
+  border-color: var(--gray-300);
+}
+
+/* Export button with spinner */
+.export-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+}
+
+.time-status.returning-today {
+  color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  font-weight: 600;
+}
+
+/* Styles pour le bouton d'actualisation */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+}
+
+.btn-secondary:hover {
+  background-color: var(--gray-100);
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
